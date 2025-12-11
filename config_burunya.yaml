@@ -7,7 +7,7 @@ unified-delay: true
 tcp-concurrent: true
 external-controller: 0.0.0.0:9090
 external-ui: ./ui
-#external-ui-url: "https://github.com/Zephyruso/zashboard/releases/latest/download/dist-cdn-fonts.zip"
+external-ui-url: "https://github.com/Zephyruso/zashboard/releases/latest/download/dist-cdn-fonts.zip"
 
 
 dns:
@@ -239,3 +239,4 @@ rules:
   - RULE-SET,tiktok,PROXY
   - DOMAIN-SUFFIX,labs.google.com,PROXY
   - MATCH,DIRECT
+
