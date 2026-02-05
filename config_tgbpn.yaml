@@ -201,14 +201,6 @@ rule-providers:
     interval: 86400
     path: ./ruleset/tiktok.yaml  
 
-  ads:
-    type: http
-    behavior: domain
-    format: mrs
-    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/category-ads-all.mrs
-    path: ./category-ads-all.mrs
-    interval: 86400
-    
 
     
 
@@ -216,7 +208,6 @@ rules:
 #Раскомментировать и добавить айпи адрес устройства, чтобы работали игрульки
 #  - IP-CIDR,192.168.1.204/32,DIRECT
 #  - SRC-IP-CIDR,192.168.1.204/32,DIRECT
-  - RULE-SET,ads,REJECT
   - RULE-SET,gemini,PROXY
   - RULE-SET,openai,PROXY
   - RULE-SET,telegram,PROXY
@@ -238,3 +229,4 @@ rules:
   - RULE-SET,tiktok,PROXY
   - DOMAIN-SUFFIX,labs.google.com,PROXY
   - MATCH,DIRECT
+
