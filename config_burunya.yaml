@@ -9,7 +9,6 @@ external-controller: 0.0.0.0:9090
 external-ui: ./ui
 external-ui-url: "https://github.com/Zephyruso/zashboard/releases/latest/download/dist-cdn-fonts.zip"
 
-
 dns:
   enable: true
   listen: 0.0.0.0:7874
@@ -35,17 +34,13 @@ dns:
     - '+.msftconnecttest.com'
     - '+.msftncsi.com'
     - '+.3gppnetwork.org'
-
 keep-alive-idle: 15
 keep-alive-interval: 15
-
 profile:
   store-selected: true 
   store-fake-ip: true 
   tracing: false
-
 routing-mark: 2 
-
 sniffer:
   enable: true
   force-dns-mapping: true
@@ -62,16 +57,12 @@ sniffer:
     - '+.local'
     - '+.push.apple.com'
     - '+.apple.com'
-
-
   #Если не работают игрульки - добавить айпи устройства и раскомментировать 
   #skip-src-address:
   #  - 192.168.1.204/32 
   #skip-dst-address:
   #  - 192.168.1.204/32 
-
 proxy-providers:
-
   burunyaVPN_bot: 
     type: http
     url: ""
@@ -85,9 +76,15 @@ proxy-providers:
       timeout: 5000
       lazy: true
       expected-status: 204
-
+    override:
+      skip-cert-verify: true
+    header:
+      User-Agent: [Super Simple Clash]
+      x-hwid: [Router]
+      x-device-os: [OpenWrt]
+      x-ver-os: [25.12]
+      x-device-model: [Router]
 proxy-groups:
-
   - name: PROXY
     type: url-test
     include-all: true
@@ -99,10 +96,7 @@ proxy-groups:
     icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Available_1.png
     use:
       - burunyaVPN_bot
-
-
 rule-providers:
-
   ru-blocked:
     behavior: domain
     type: http
@@ -110,7 +104,6 @@ rule-providers:
     url: 'https://cdn.jsdelivr.net/gh/shvchk/unblock-net/lists/clash/ru-blocked'
     interval: 86400
     path: ./ruleset/ru-blocked.yaml
-    
   cloudflare:
     behavior: classical
     type: http
@@ -118,50 +111,42 @@ rule-providers:
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Cloudflare/Cloudflare_Resolve.list"
     interval: 86400
     path: ./ruleset/cloudflare.lst
-
-  
   instagram:
     behavior: classical
     type: http
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Instagram/Instagram.yaml"
     interval: 86400
     path: ./ruleset/instagram.yaml
-
   facebook:
     behavior: classical
     type: http
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Facebook/Facebook.yaml"
     interval: 86400
     path: ./ruleset/facebook.yaml
-
   youtube:
     behavior: classical
     type: http
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.yaml"
     interval: 86400
     path: ./ruleset/youtube.yaml
-
   discord-domain:
     behavior: classical
     type: http
     url: "https://raw.githubusercontent.com/fildunsky/clash_discord/refs/heads/main/discord-domain.yaml"
     interval: 86400
     path: ./ruleset/discord-domain.yaml
-
   discord-ip:
     behavior: classical
     type: http
     url: "https://raw.githubusercontent.com/fildunsky/clash_discord/refs/heads/main/discord-ip.yaml"
     interval: 86400
     path: ./ruleset/discord-ip.yaml
-    
   whatsapp:
     behavior: classical
     type: http
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Whatsapp/Whatsapp.yaml"
+    url: "https://raw.githubusercontent.com/Boorad0/rule_set_mihomo/refs/heads/main/WhatsApp.yaml"
     interval: 86400
-    path: ./ruleset/whatsapp.yaml
-    
+    path: ./ruleset/whatsapp.yaml 
   gemini:
     behavior: classical
     type: http
@@ -169,7 +154,6 @@ rule-providers:
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.yaml"
     interval: 86400
     path: ./ruleset/gemini.yaml
-
   openai:
     behavior: classical
     type: http
@@ -177,7 +161,6 @@ rule-providers:
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI.yaml"
     interval: 86400
     path: ./ruleset/openai.yaml
-    
   telegram:
     behavior: classical
     type: http
@@ -185,7 +168,6 @@ rule-providers:
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Telegram/Telegram.yaml"    
     interval: 86400
     path: ./ruleset/telegram.yaml
-    
   twitter:
     behavior: classical
     type: http
@@ -193,7 +175,6 @@ rule-providers:
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.yaml"
     interval: 86400
     path: ./ruleset/twitter.yaml
-    
   tiktok:
     behavior: classical
     type: http
@@ -201,15 +182,18 @@ rule-providers:
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.yaml"    
     interval: 86400
     path: ./ruleset/tiktok.yaml  
+  roblox:
+    behavior: classical
+    type: http
+    format: yaml
+    url: "https://raw.githubusercontent.com/Boorad0/rule_set_mihomo/refs/heads/main/Roblox.yaml"    
+    interval: 86400
+    path: ./ruleset/roblox.yaml  
 
-    
-
-    
 
 rules:
-#Раскомментировать и добавить айпи адрес устройства, чтобы работали игрульки
-#  - IP-CIDR,192.168.1.204/32,DIRECT
-#  - SRC-IP-CIDR,192.168.1.204/32,DIRECT
+  #- IP-CIDR,192.168.10.109/32,PROXY
+  #- SRC-IP-CIDR,192.168.10.109/32,PROXY
   - RULE-SET,gemini,PROXY
   - RULE-SET,openai,PROXY
   - RULE-SET,telegram,PROXY
@@ -220,6 +204,7 @@ rules:
   - RULE-SET,facebook,PROXY
   - RULE-SET,discord-domain,PROXY
   - RULE-SET,discord-ip,PROXY
+  - RULE-SET,roblox,PROXY
   - DOMAIN-SUFFIX,fast.com,PROXY
   - DOMAIN-SUFFIX,4pda.to,PROXY
   - DOMAIN-SUFFIX,nalog.ru,DIRECT
@@ -231,5 +216,3 @@ rules:
   - RULE-SET,tiktok,PROXY
   - DOMAIN-SUFFIX,labs.google.com,PROXY
   - MATCH,DIRECT
-
-
