@@ -125,6 +125,7 @@ rule-providers:
     url: 'https://cdn.jsdelivr.net/gh/shvchk/unblock-net/lists/clash/ru-blocked'
     interval: 86400
     path: ./ruleset/ru-blocked.yaml
+    proxy: PROXY
   cloudflare:
     behavior: classical
     type: http
@@ -132,42 +133,49 @@ rule-providers:
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Cloudflare/Cloudflare_Resolve.list"
     interval: 86400
     path: ./ruleset/cloudflare.lst
+    proxy: PROXY
   instagram:
     behavior: classical
     type: http
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Instagram/Instagram.yaml"
     interval: 86400
     path: ./ruleset/instagram.yaml
+    proxy: PROXY
   facebook:
     behavior: classical
     type: http
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Facebook/Facebook.yaml"
     interval: 86400
     path: ./ruleset/facebook.yaml
+    proxy: PROXY
   youtube:
     behavior: classical
     type: http
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.yaml"
     interval: 86400
-    path: ./ruleset/youtube_1.yaml
+    path: ./ruleset/youtube.yaml
+    proxy: PROXY
   discord-domain:
     behavior: classical
     type: http
     url: "https://raw.githubusercontent.com/fildunsky/clash_discord/refs/heads/main/discord-domain.yaml"
     interval: 86400
     path: ./ruleset/discord-domain.yaml
+    proxy: PROXY
   discord-ip:
     behavior: classical
     type: http
     url: "https://raw.githubusercontent.com/fildunsky/clash_discord/refs/heads/main/discord-ip.yaml"
     interval: 86400
     path: ./ruleset/discord-ip.yaml
+    proxy: PROXY
   whatsapp:
     behavior: classical
     type: http
     url: "https://raw.githubusercontent.com/Boorad0/rule_set_mihomo/refs/heads/main/WhatsApp.yaml"
     interval: 86400
     path: ./ruleset/whatsapp.yaml 
+    proxy: PROXY
   gemini:
     behavior: classical
     type: http
@@ -175,6 +183,7 @@ rule-providers:
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.yaml"
     interval: 86400
     path: ./ruleset/gemini.yaml
+    proxy: PROXY
   openai:
     behavior: classical
     type: http
@@ -182,6 +191,7 @@ rule-providers:
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/OpenAI/OpenAI.yaml"
     interval: 86400
     path: ./ruleset/openai.yaml
+    proxy: PROXY
   telegram-ips:
     type: http
     behavior: ipcidr
@@ -189,6 +199,7 @@ rule-providers:
     interval: 86400
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs
     path: ./rule-sets/telegram-ips.mrs
+    proxy: PROXY
   telegram-domains:
     type: http
     behavior: domain
@@ -196,7 +207,7 @@ rule-providers:
     interval: 86400
     url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs
     path: ./rule-sets/telegram-domains.mrs
-
+    proxy: PROXY
   twitter:
     behavior: classical
     type: http
@@ -204,21 +215,23 @@ rule-providers:
     url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.yaml"
     interval: 86400
     path: ./ruleset/twitter.yaml
+    proxy: PROXY
   tiktok:
     behavior: classical
     type: http
     format: yaml
     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/tiktok.yaml"    
     interval: 86400
-    path: ./ruleset/tiktok.yaml  
+    path: ./ruleset/tiktok.yaml
+    proxy: PROXY
   roblox:
     behavior: classical
     type: http
     format: yaml
     url: "https://raw.githubusercontent.com/Boorad0/rule_set_mihomo/refs/heads/main/Roblox.yaml"    
     interval: 86400
-    path: ./ruleset/roblox.yaml  
-
+    path: ./ruleset/roblox.yaml 
+    proxy: PROXY
 
 rules:
   - RULE-SET,gemini,PROXY
